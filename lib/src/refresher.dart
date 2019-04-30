@@ -166,9 +166,18 @@ class EasyRefreshState extends State<EasyRefresh>
   // 默认顶部和底部视图
   RefreshHeader _defaultHeader = ClassicsHeader(
     key: new GlobalKey<RefreshHeaderState>(),
+    refreshText: "下拉刷新",
+    refreshReadyText: "释放刷新",
+    refreshingText: "正在刷新...",
+    refreshedText: "刷新完成",
   );
   RefreshFooter _defaultFooter =
-      ClassicsFooter(key: new GlobalKey<RefreshFooterState>());
+      ClassicsFooter(key: new GlobalKey<RefreshFooterState>(),
+        loadText: "上拉加载",
+        loadReadyText: "释放加载",
+        loadingText: "正在加载",
+        loadedText: "加载完成",
+        noMoreText: "没有更多数据",);
   // 滑动速度(ms)为单位
   double scrollSpeed = 0.0;
   double lastPixels = 0.0;
