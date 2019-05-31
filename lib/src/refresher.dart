@@ -170,6 +170,8 @@ class EasyRefreshState extends State<EasyRefresh>
     refreshReadyText: "释放刷新",
     refreshingText: "正在刷新...",
     refreshedText: "刷新完成",
+      textColor:Color(0xff7E7E7E),
+    bgColor:Color(0xfff0f0f0)
   );
   RefreshFooter _defaultFooter =
       ClassicsFooter(key: new GlobalKey<RefreshFooterState>(),
