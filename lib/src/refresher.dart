@@ -179,7 +179,10 @@ class EasyRefreshState extends State<EasyRefresh>
         loadReadyText: "释放加载",
         loadingText: "正在加载",
         loadedText: "加载完成",
-        noMoreText: "没有更多数据",);
+        noMoreText: "没有更多数据",
+          textColor:Color(0xff7E7E7E),
+          bgColor:Color(0xfff0f0f0)
+      );
   // 滑动速度(ms)为单位
   double scrollSpeed = 0.0;
   double lastPixels = 0.0;
