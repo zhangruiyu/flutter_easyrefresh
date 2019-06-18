@@ -83,6 +83,8 @@ class EasyRefresh extends StatefulWidget {
   final bool autoControl;
   // 首次刷新
   final bool firstRefresh;
+  // 自动返回到顶部
+  final bool autoAnimateToTop;
   // 滚动控制器
   final ScrollController outerController;
   // 列表构建器
@@ -106,6 +108,7 @@ class EasyRefresh extends StatefulWidget {
       this.limitScroll: false,
       this.autoControl: true,
       this.firstRefresh: false,
+      this.autoAnimateToTop: true,
       this.outerController,
       this.builder,
       @required this.child})
@@ -1038,10 +1041,12 @@ class EasyRefreshState extends State<EasyRefresh>
         else if (currentState == AnimationStates.LoadDataEnd) {
           this._refreshHeader.getKey().currentState.onRefreshed();
           _onHeaderStatusChanged(HeaderStatus.REFRESHED);
-          _scrollController.animateTo(
-              _scrollController.position.minScrollExtent,
-              duration: new Duration(milliseconds: 200),
-              curve: Curves.ease);
+          if(widget.autoAnimateToTop){
+            _scrollController.animateTo(
+                _scrollController.position.minScrollExtent,
+                duration: new Duration(milliseconds: 200),
+                curve: Curves.ease);
+          }
         } else if (currentState == AnimationStates.DragAndRefreshNotEnabled) {
           if (_animationStates == AnimationStates.RefreshBoxIdle) {
             // 开始刷新
